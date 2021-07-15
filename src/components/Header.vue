@@ -2,7 +2,7 @@
     <header>
         <h1>
             {{ title }}
-            <Button @toggle="$emit('toggle')" text="Create task" color="green"/>
+            <Button @button-click="$emit('toggle')" :text="showNewTask ? 'Close' : 'New task'" :color="showNewTask ? 'red' : 'green'"/>
         </h1>
     </header>
 </template>
@@ -14,6 +14,7 @@ export default {
     name: 'Header',
     props: {
         title: String,
+        showNewTask: Boolean
     },
     components: {
         Button

@@ -26,16 +26,18 @@ export default {
 .task {
     background: #f4f4f4;
     margin: 5px;
-    padding: 1px;
-    border-left: solid 6px;
-    border-left-color: rgb(0, 189, 247);
-    line-height: 0;
+    padding: 1px 1px 1px 10px;
+    border-left: rgb(32, 121, 148) solid 6px;
+    line-height: 0.4;
 }
 .deleteButton {
     background: tomato;
     border: none;
     color: white;
     cursor: pointer;
+    float: right;
+    margin-right: 10px;
+    padding: 2px 5px;
 }
 .deleteButton:hover {
     background: red;

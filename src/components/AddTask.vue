@@ -1,13 +1,8 @@
 <template>
     <form @submit="onSumbit" name="add-form">
-        <div>
-            <label>Task</label>
-            <input type="text" v-model="text" name="text"/>
-        </div>
-        <div>
-            <label>Day and Time</label>
-            <input type="text" v-model="day" name="day"/><br><br>
-        </div>
+        <h3>Create new task</h3>
+        <input type="text" v-model="text" name="text" placeholder="Task"/><br><br>
+        <input type="text" v-model="day" name="day" placeholder="Day and time"/><br><br>
         <input type="submit" value="Save" >
     </form>
 </template>
@@ -24,8 +19,8 @@ export default {
     methods: {
         onSumbit(e) {
             e.preventDefault()
-            if(!this.text) {
-                alert('Please add text')
+            if(!this.text || !this.day) {
+                alert('All fields required')
                 return
             }
             const newTask = {
@@ -62,6 +57,6 @@ input[type=submit]:hover {
 }
 form {
     background: rgb(180, 180, 175);
-    padding: 10px;
+    padding: 1px 10px 10px 10px;
 }
 </style>

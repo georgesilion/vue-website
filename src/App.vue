@@ -1,8 +1,8 @@
 <template>
   <div>
     <div class="task-tracker">
-      <Header @toggle="toggle" title="Task tracker" />
-      <div v-if="showAddTask">
+      <Header @toggle="toggle" title="Task tracker" :showNewTask="showNewTask" />
+      <div v-if="showNewTask">
         <AddTask @add-task="addTask" />
       </div>
       <Tasks @delete-item="deleteItem" :tasks="tasks" />
@@ -25,12 +25,12 @@ export default {
   data() {
     return {
       tasks: [],
-      showAddTask: false
+      showNewTask: false
     }
   },
   methods: {
     toggle() {
-      this.showAddTask = !this.showAddTask
+      this.showNewTask = !this.showNewTask
     },
     addTask(task) {
       this.tasks = [...this.tasks, task]
@@ -56,16 +56,14 @@ export default {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   border: 1px solid steelblue;
   max-width: 400px;
+  padding: 10px;
 }
 .btn {
   float: right;
   color: #fff;
   border: none;
-  padding: 10px 20px;
+  padding: 10px 12px;
   margin-right: 5px;
   cursor: pointer;
-}
-.btn:hover {
-  background-color: rgb(122, 167, 98) !important;
 }
 </style>
