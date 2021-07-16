@@ -1,12 +1,37 @@
 <template>
-  <div>
-    <div class="task-tracker">
-      <Header @toggle="toggle" title="Task tracker" :showNewTask="showNewTask" />
-      <div v-if="showNewTask">
-        <AddTask @add-task="addTask" />
-      </div>
-      <Tasks @delete-item="deleteItem" :tasks="tasks" />
+  <div class="page">
+
+    <div class="top-nav">
+        <b-navbar toggleable="sm" type="dark" variant="dark" class="nav">
+          <b-navbar-brand href="#">GS</b-navbar-brand>
+          <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
+          <b-collapse id="nav-collapse" is-nav>
+            <b-navbar-nav>
+              <b-nav-item href="#">About</b-nav-item>
+              <b-nav-item href="#" disabled>Work in progress</b-nav-item>
+            </b-navbar-nav>
+          </b-collapse>
+        </b-navbar>
     </div>
+
+    <div class="main-banner">
+      <b-container fluid class="text-center">
+        <h1>Hello</h1>
+      </b-container>
+    </div>
+
+    <div class="widget d-flex justify-content-center">
+      <b-card>
+        <div class="task-tracker">
+          <Header @toggle="toggle" title="Task tracker" :showNewTask="showNewTask" />
+          <div v-if="showNewTask">
+            <AddTask @add-task="addTask" />
+          </div>
+          <Tasks @delete-item="deleteItem" :tasks="tasks" />
+        </div>
+      </b-card>
+    </div>
+
   </div>
 </template>
 
@@ -52,18 +77,25 @@ export default {
 </script>
 
 <style>
+.page {
+  background: rgb(170, 135, 135);
+}
+.nav {
+  padding-left: 10px !important;
+  padding-right: 10px !important;
+}
+.main-banner {
+  padding-top: 5vh;
+  height: 20vh;
+}
+.widget {
+  padding: 1rem;
+  min-height: 80vh;
+}
 .task-tracker {
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  border: 1px solid steelblue;
-  max-width: 400px;
-  padding: 10px;
 }
 .btn {
   float: right;
-  color: #fff;
-  border: none;
-  padding: 10px 12px;
   margin-right: 5px;
-  cursor: pointer;
 }
 </style>
