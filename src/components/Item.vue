@@ -1,11 +1,19 @@
 <template>
-    <div class="task">
-        <h3>
-            {{task.text}}
-            <button @click="onDelete(task.id)" class="deleteButton">&#10008;</button>
-        </h3>
-        <p>{{task.day}}</p>
-    </div>
+    <b-container>
+        <div class="task">
+            <h3>
+                <div style="float: left">
+                    {{task.text}}
+                </div>
+                <b-button @click="onDelete(task.id)" variant="danger" class="text-light deleteButton">
+                    &#10008;
+                </b-button><br>
+            </h3>
+            <h6>
+                {{task.day}}
+            </h6>
+        </div>
+    </b-container>
 </template>
 
 <script>
@@ -24,22 +32,15 @@ export default {
 
 <style scope>
 .task {
-    background: #f4f4f4;
-    margin: 5px;
+    background: #dad7d7;
+    margin-top: 0.5rem;
     padding: 1px 1px 1px 10px;
     border-left: rgb(32, 121, 148) solid 6px;
     line-height: 0.4;
+    border-radius: 4px;
 }
 .deleteButton {
-    background: tomato;
-    border: none;
-    color: white;
-    cursor: pointer;
+    margin: 10px;
     float: right;
-    margin-right: 10px;
-    padding: 2px 5px;
-}
-.deleteButton:hover {
-    background: red;
 }
 </style>

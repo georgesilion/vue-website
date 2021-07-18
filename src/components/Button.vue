@@ -1,13 +1,12 @@
 <template>
-    <button @click="onClick()" :style="{background: color}" class="btn">{{ text }}</button>
+    <b-button @click="onClick()" class="text-light">{{ text }}</b-button>
 </template>
 
 <script>
 export default {
     name: 'Button',
     props: {
-        text: String,
-        color: String
+        text: String
     },
     methods: {
         onClick() {

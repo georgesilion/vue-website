@@ -1,5 +1,5 @@
 <template>
-  <div class="page">
+  <div class="bg-secondary">
 
     <div class="top-nav">
         <b-navbar toggleable="sm" type="dark" variant="dark" class="nav">
@@ -14,21 +14,17 @@
         </b-navbar>
     </div>
 
-    <div class="main-banner">
-      <b-container fluid class="text-center">
+    <div class="main-banner text-center text-light">
         <h1>Hello</h1>
-      </b-container>
     </div>
 
     <div class="widget d-flex justify-content-center">
       <b-card>
-        <div class="task-tracker">
           <Header @toggle="toggle" title="Task tracker" :showNewTask="showNewTask" />
           <div v-if="showNewTask">
             <AddTask @add-task="addTask" />
           </div>
           <Tasks @delete-item="deleteItem" :tasks="tasks" />
-        </div>
       </b-card>
     </div>
 
@@ -69,7 +65,7 @@ export default {
       {
         id: 1,
         text: 'Appointment',
-        day: ' March 1st at 2:35pm'
+        day: ' March 1st @ 2:35pm'
       } 
     ]
   }
@@ -77,25 +73,15 @@ export default {
 </script>
 
 <style>
-.page {
-  background: rgb(170, 135, 135);
-}
 .nav {
-  padding-left: 10px !important;
-  padding-right: 10px !important;
+  padding-left:  1rem !important;
+  padding-right: 1rem !important;
 }
 .main-banner {
-  padding-top: 5vh;
-  height: 20vh;
+  padding-top: 2rem;
 }
 .widget {
   padding: 1rem;
   min-height: 80vh;
-}
-.task-tracker {
-}
-.btn {
-  float: right;
-  margin-right: 5px;
 }
 </style>

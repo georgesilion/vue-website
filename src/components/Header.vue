@@ -1,10 +1,12 @@
 <template>
-    <header>
-        <h1>
-            {{ title }}
-            <Button @button-click="$emit('toggle')" :text="showNewTask ? 'Close' : 'New task'" :color="showNewTask ? 'red' : 'green'"/>
-        </h1>
-    </header>
+    <b-container>
+        <header>
+            <h1>
+                {{ title }}
+                <Button @button-click="$emit('toggle')" :text="showNewTask ? 'Close' : 'New task'" :class="showNewTask ? 'bg-danger' : 'bg-success'"/>
+            </h1>
+        </header>
+    </b-container>
 </template>
 
 <script>
