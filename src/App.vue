@@ -1,14 +1,14 @@
 <template>
-  <div class="bg-secondary">
+  <div class="bg-secondary" id="main">
 
     <div class="top-nav">
         <b-navbar toggleable="sm" type="dark" variant="dark" class="nav">
-          <b-navbar-brand href="#">GS</b-navbar-brand>
+          <b-navbar-brand href="#main">GS</b-navbar-brand>
           <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
           <b-collapse id="nav-collapse" is-nav>
             <b-navbar-nav>
-              <b-nav-item href="#">About</b-nav-item>
-              <b-nav-item href="#" disabled>Work in progress</b-nav-item>
+              <b-nav-item href="#task-tracker">Task Tracker</b-nav-item>
+              <b-nav-item href="#todo">ToDo</b-nav-item>
             </b-navbar-nav>
           </b-collapse>
         </b-navbar>
@@ -18,9 +18,17 @@
         <h1>Hello</h1>
     </div>
 
-    <div class="widget d-flex justify-content-center">
+    <div class="d-flex justify-content-center" id="todo">
       <b-card>
-          <Header @toggle="toggle" title="Task tracker" :showNewTask="showNewTask" />
+        <Header @toggle="toggleNewTodo" title="To Do" />
+        <AddTodo @add-todo="addTodo" />
+        <Todos :todos="todos"/>
+      </b-card>
+    </div>
+
+    <div class="widget d-flex justify-content-center" id="task-tracker">
+      <b-card>
+          <Header @toggle="toggleNewTask" title="Task tracker" :showNewTask="showNewTask" />
           <div v-if="showNewTask">
             <AddTask @add-task="addTask" />
           </div>
@@ -32,29 +40,41 @@
 </template>
 
 <script>
-import Header from './components/Header.vue'
-import Tasks from './components/Tasks.vue'
-import AddTask from './components/AddTask.vue'
+import Header from './components/task-tracker/Header.vue'
+import Tasks from './components/task-tracker/Tasks.vue'
+import AddTask from './components/task-tracker/AddTask.vue'
+import AddTodo from './components/todo/AddTodo.vue'
+import Todos from './components/todo/Todos.vue'
 
 export default {
   name: 'App',
   components: {
     Header,
     Tasks,
-    AddTask
+    AddTask,
+    Todos,
+    AddTodo
   },
   data() {
     return {
       tasks: [],
-      showNewTask: false
+      todos: [],
+      showNewTask: false,
+      showNewTodo: false
     }
   },
   methods: {
-    toggle() {
+    toggleNewTask() {
       this.showNewTask = !this.showNewTask
+    },
+    toggleNewTodo() {
+      this.showNewTodo = !this.showNewTodo
     },
     addTask(task) {
       this.tasks = [...this.tasks, task]
+    },
+    addTodo(todo) {
+      this.todos = [...this.todos, todo]
     },
     deleteItem(id) {
       this.tasks = this.tasks.filter((task) => task.id !== id)
@@ -67,6 +87,16 @@ export default {
         text: 'Appointment',
         day: ' March 1st @ 2:35pm'
       } 
+    ],
+    this.todos = [
+      {
+        id: 1,
+        text: 'Eat'
+      },
+      {
+        id: 2,
+        text: 'Sleep'
+      }
     ]
   }
 }

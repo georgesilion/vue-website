@@ -3,7 +3,7 @@
         <header>
             <h1>
                 {{ title }}
-                <Button @button-click="$emit('toggle')" :text="showNewTask ? 'Close' : 'New task'" :class="showNewTask ? 'bg-danger' : 'bg-success'"/>
+                <Button @button-click="$emit('toggle')" :text="showNewTask ? 'Close' : 'New'" :class="showNewTask ? 'bg-danger' : 'bg-success'"/>
             </h1>
         </header>
     </b-container>

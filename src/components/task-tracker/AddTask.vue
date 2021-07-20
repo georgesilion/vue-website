@@ -1,6 +1,6 @@
 <template>
     <b-container>
-        <b-form @submit="onSumbit" name="add-form">
+        <b-form @submit="onSubmit" name="add-form">
             <h4>Create new task</h4>
             <b-form-input type="text" v-model="text" name="text" placeholder="Task" class="user-input" required></b-form-input>
             <b-form-input type="text" v-model="day" name="day" placeholder="Day and time" class="user-input" required></b-form-input>
@@ -21,11 +21,8 @@ export default {
         }
     },
     methods: {
-        onSumbit(e) {
+        onSubmit(e) {
             e.preventDefault()
-            if(!this.text || !this.day) {
-                return
-            }
             const newTask = {
                 id: Math.floor(Math.random() * 10000),
                 text: this.text,
