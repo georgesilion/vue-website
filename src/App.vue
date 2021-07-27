@@ -20,8 +20,10 @@
 
     <div class="d-flex justify-content-center" id="todo">
       <b-card>
-        <Header @toggle="toggleNewTodo" title="To Do" />
-        <AddTodo @add-todo="addTodo" />
+        <Header @toggle="toggleNewTodo" title="To Do" :showNewTodo="showNewTodo" />
+        <div v-if="showNewTodo">
+          <AddTodo @add-todo="addTodo" />
+        </div>
         <Todos :todos="todos"/>
       </b-card>
     </div>
