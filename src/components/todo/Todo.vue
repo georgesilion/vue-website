@@ -1,10 +1,12 @@
 <template>
     <b-container>
         <div class="task">
-            <h3>
-                {{todo.text}}
-                <br>
-            </h3>
+            <b-form-checkbox v-model="status" name="checkbox-1" value="accepted" unchecked-value="not_accepted">
+                <h3>
+                    {{todo.text}}
+                    <br>
+                </h3>
+            </b-form-checkbox>
         </div>
     </b-container>
 </template>
