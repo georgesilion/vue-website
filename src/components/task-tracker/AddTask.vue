@@ -3,7 +3,7 @@
         <b-form @submit="onSubmit" name="add-form">
             <h4>Create new task</h4>
             <b-form-input type="text" v-model="text" name="text" placeholder="Task" class="user-input" required></b-form-input>
-            <b-form-input type="text" v-model="day" name="day" placeholder="Day and time" class="user-input" required></b-form-input>
+            <b-form-datepicker placeholder="Choose a date" type="text" v-model="day" name="day" :date-format-options="{ year: 'numeric', month: 'short', day: '2-digit'}" class="mb-2"></b-form-datepicker>
             <div class="text-center">
                 <b-button block type="submit" variant="success">Save</b-button>
             </div>
