@@ -87,7 +87,7 @@ export default {
       {
         id: 1,
         text: 'Appointment',
-        day: ' March 1st @ 2:35pm'
+        day: '2021-03-10'
       } 
     ],
     this.todos = [
