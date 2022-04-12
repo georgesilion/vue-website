@@ -1,24 +1,27 @@
 <template>
-  <div class="bg-secondary" id="main">
+  <div class="bg-secondary" id="top">
 
     <div class="top-nav">
-        <b-navbar toggleable="sm" type="dark" variant="dark" class="nav">
-          <b-navbar-brand href="#main">GS</b-navbar-brand>
+        <b-navbar toggleable="sm" type="dark" variant="dark" class="nav" fixed="top">
+          <b-navbar-brand href="#top">GS</b-navbar-brand>
           <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
           <b-collapse id="nav-collapse" is-nav>
             <b-navbar-nav>
-              <b-nav-item href="#task-tracker">Task Tracker</b-nav-item>
               <b-nav-item href="#todo">ToDo</b-nav-item>
+              <b-nav-item href="#task-tracker">Task Tracker</b-nav-item>
             </b-navbar-nav>
           </b-collapse>
         </b-navbar>
     </div>
 
-    <div class="main-banner text-center text-light">
-        <h1>Hello</h1>
+    <div class="text-light vh-100 d-flex align-items-center justify-content-center">
+        <div class="text-center">
+          <h1>Hello</h1>
+          <b-button variant="outline-dark" href="#todo">Explore</b-button>
+        </div>
     </div>
 
-    <div class="d-flex justify-content-center" id="todo">
+    <div class="vh-100 d-flex align-items-center justify-content-center" id="todo">
       <b-card>
         <Header @toggle="toggleNewTodo" title="To Do" :showNewTodo="showNewTodo" />
         <div v-if="showNewTodo">
@@ -28,7 +31,7 @@
       </b-card>
     </div>
 
-    <div class="widget d-flex justify-content-center" id="task-tracker">
+    <div class="widget vh-100 d-flex align-items-center justify-content-center" id="task-tracker">
       <b-card>
           <Header @toggle="toggleNewTask" title="Task tracker" :showNewTask="showNewTask" />
           <div v-if="showNewTask">
@@ -108,9 +111,6 @@ export default {
 .nav {
   padding-left:  1rem !important;
   padding-right: 1rem !important;
-}
-.main-banner {
-  padding-top: 2rem;
 }
 .widget {
   padding: 1rem;
