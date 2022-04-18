@@ -9,6 +9,7 @@
             <b-navbar-nav>
               <b-nav-item href="#todo">ToDo</b-nav-item>
               <b-nav-item href="#task-tracker">Task Tracker</b-nav-item>
+              <b-nav-item href="#counter">Counter</b-nav-item>
             </b-navbar-nav>
           </b-collapse>
         </b-navbar>
@@ -41,6 +42,15 @@
       </b-card>
     </div>
 
+    <div class="vh-100 d-flex align-items-center justify-content-center text-center" id="counter">
+      <b-card>
+        <h1 class="inline-block"> {{counter}} </h1>
+        <b-button class="p-4 m-2" variant="outline-warning" @click="decrement"><b>-</b></b-button>
+        <b-button class="p-4 m-2" variant="outline-success" @click="increment"><b>+</b></b-button>
+        <b-button class="px-5 m-3 d-block" variant="outline-danger" @click="reset">Reset</b-button>
+      </b-card>
+    </div>
+
   </div>
 </template>
 
@@ -65,7 +75,8 @@ export default {
       tasks: [],
       todos: [],
       showNewTask: false,
-      showNewTodo: false
+      showNewTodo: false,
+      counter: 0
     }
   },
   methods: {
@@ -83,6 +94,18 @@ export default {
     },
     deleteItem(id) {
       this.tasks = this.tasks.filter((task) => task.id !== id)
+    },
+    increment() {
+      this.counter += 1;
+    },
+    decrement() {
+      if (this.counter <= 0)
+        alert("Negative values not allowed!")
+      else
+        this.counter -= 1;
+    },
+    reset() {
+      this.counter = 0;
     }
   },
   created() {
