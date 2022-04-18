@@ -4,7 +4,6 @@
             <b-form-checkbox v-model="status" name="checkbox-1" value="accepted" unchecked-value="not_accepted">
                 <h3>
                     {{todo.text}}
-                    <br>
                 </h3>
             </b-form-checkbox>
         </div>
