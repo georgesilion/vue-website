@@ -2,17 +2,17 @@
   <div class="bg-secondary" id="top">
 
     <div class="top-nav">
-        <b-navbar toggleable="sm" type="dark" variant="dark" class="nav" fixed="top">
-          <b-navbar-brand href="#top">GS</b-navbar-brand>
-          <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
-          <b-collapse id="nav-collapse" is-nav>
-            <b-navbar-nav>
-              <b-nav-item href="#todo">ToDo</b-nav-item>
-              <b-nav-item href="#task-tracker">Task Tracker</b-nav-item>
-              <b-nav-item href="#counter">Counter</b-nav-item>
-            </b-navbar-nav>
-          </b-collapse>
-        </b-navbar>
+      <b-navbar toggleable="sm" type="dark" variant="dark" class="nav" fixed="top">
+        <b-navbar-brand href="#top">GS</b-navbar-brand>
+        <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
+        <b-collapse id="nav-collapse" is-nav>
+          <b-navbar-nav>
+            <b-nav-item href="#todo">ToDo</b-nav-item>
+            <b-nav-item href="#task-tracker">Task Tracker</b-nav-item>
+            <b-nav-item href="#counter">Counter</b-nav-item>
+          </b-navbar-nav>
+        </b-collapse>
+      </b-navbar>
     </div>
 
     <div class="text-light vh-100 d-flex align-items-center justify-content-center">
@@ -23,8 +23,8 @@
     </div>
 
     <div class="vh-100 d-flex align-items-center justify-content-center" id="todo">
-      <b-card>
-        <Header @toggle="toggleNewTodo" title="To Do" :showNewTodo="showNewTodo" />
+      <b-card title="To Do" style="min-width: 18rem">
+        <b-button  @click="toggleNewTodo" :class="showNewTodo ? 'bg-danger' : 'bg-primary'">{{ showNewTodo ? 'Close' : 'New' }}</b-button>
         <div v-if="showNewTodo">
           <AddTodo @add-todo="addTodo" />
         </div>
@@ -84,7 +84,7 @@ export default {
       this.showNewTask = !this.showNewTask
     },
     toggleNewTodo() {
-      this.showNewTodo = !this.showNewTodo
+      this.showNewTodo = this.showNewTodo ? false : true;
     },
     addTask(task) {
       this.tasks = [...this.tasks, task]
