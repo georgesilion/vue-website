@@ -2,7 +2,7 @@
   <div class="bg-secondary" id="top">
 
     <div class="top-nav">
-      <b-navbar toggleable="sm" type="dark" variant="dark" class="nav" fixed="top">
+      <b-navbar toggleable="sm" type="dark" variant="dark" class="nav" >
         <b-navbar-brand href="#top">GS</b-navbar-brand>
         <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
         <b-collapse id="nav-collapse" is-nav>
